@@ -1,0 +1,20 @@
+name: Complex-Workflow
+on: push
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - run: date
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
+  mac:
+    runs-on: macos-latest
+    steps:
+      - run: date
+  depends:
+    needs: [windows, ubuntu, mac]
+    runs-on: windows-latest
+    steps:
+      - run: date
